@@ -20,17 +20,18 @@ namespace FontsInstaller
             Cursor = Cursors.AppStarting;
             textBox1.Text = string.Empty;
 
-            string[] list = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.otf");
+            string CurrenDir = Directory.GetCurrentDirectory();
+            string[] list = Directory.GetFiles(CurrenDir, "*.otf");
             installer(list);
-            list = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.ttf");
+            list = Directory.GetFiles(CurrenDir, "*.ttf");
             installer(list);
-            list = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.ttc");
+            list = Directory.GetFiles(CurrenDir, "*.ttc");
             installer(list);
-            list = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.pfb");
+            list = Directory.GetFiles(CurrenDir, "*.pfb");
             installer(list);
-            list = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.fnt");
+            list = Directory.GetFiles(CurrenDir, "*.fnt");
             installer(list);
-            list = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.fon");
+            list = Directory.GetFiles(CurrenDir, "*.fon");
             installer(list);
 
             textboxAppend("All Done.");
