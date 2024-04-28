@@ -53,7 +53,7 @@ namespace FontsInstaller
                     RegistryKey key = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts", true);
 
                     key.SetValue(oDetailedFileInfo.FileTitle, oDetailedFileInfo.FileName);
-                    textboxAppend("-> " + Path.GetFileName(file) + " -> OK" +  "\r\n");
+                    textboxAppend("-> " + Path.GetFileName(file) + " -> OK" );
                 } 
                 catch (Exception ex)
                 {
@@ -69,7 +69,7 @@ namespace FontsInstaller
 
         private void textboxAppend(string text)
         {
-            textBox1.AppendText(text);
+            textBox1.AppendText(text + "\r\n");
 
         }
     }
