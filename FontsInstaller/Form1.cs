@@ -19,20 +19,15 @@ namespace FontsInstaller
         {
             Cursor = Cursors.AppStarting;
             textBox1.Text = string.Empty;
-
+            string[] fontsList = { "*.otf" , "*.ttf", "*.ttc", "*.pfb", "*.fnt", "*.fon" };
+            string[] list = null;
             string CurrenDir = Directory.GetCurrentDirectory();
-            string[] list = Directory.GetFiles(CurrenDir, "*.otf");
-            installer(list);
-            list = Directory.GetFiles(CurrenDir, "*.ttf");
-            installer(list);
-            list = Directory.GetFiles(CurrenDir, "*.ttc");
-            installer(list);
-            list = Directory.GetFiles(CurrenDir, "*.pfb");
-            installer(list);
-            list = Directory.GetFiles(CurrenDir, "*.fnt");
-            installer(list);
-            list = Directory.GetFiles(CurrenDir, "*.fon");
-            installer(list);
+
+            foreach (string font in fontsList)
+            {
+                list = Directory.GetFiles(CurrenDir, font);
+                installer(list);
+            }
 
             textboxAppend("All Done.");
             Cursor = Cursors.Default;
