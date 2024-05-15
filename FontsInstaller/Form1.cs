@@ -41,6 +41,7 @@ namespace FontsInstaller
 
         private void installer(string[] list)
         {
+            RegistryKey key = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts", true);
             foreach (string file in list)
             {
                 try 
@@ -50,8 +51,6 @@ namespace FontsInstaller
                     string dest = System.Environment.GetFolderPath(
     System.Environment.SpecialFolder.Fonts) + "\\" + oDetailedFileInfo.FileName;
                     File.Copy(file, dest, true);
-
-                    RegistryKey key = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts", true);
 
                     key.SetValue(oDetailedFileInfo.FileTitle, oDetailedFileInfo.FileName);
                     textboxAppend("-> " + Path.GetFileName(file) + " -> OK" );
